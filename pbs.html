@@ -1,0 +1,1620 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="https://cdn.plyr.io/3.3.21/plyr.polyfilled.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.3.21/plyr.css">
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display+SC" rel="stylesheet">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+
+
+  <style>
+
+
+  * {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+  }
+
+  body {
+    background:#ECECEA;
+  }
+
+  .hideBody {
+    height: 100vh;
+    overflow: hidden;
+  }
+
+/***************************************************************************************/
+/***************************************************************************************/
+/*
+*      LANDING
+*/
+/***************************************************************************************/
+/***************************************************************************************/
+
+  .landing{
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .landing__image {
+    width: 45%;
+  }
+
+  .landing__image img{
+    width: 100%;
+  }
+
+  .landing__text{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-family: -apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue","Segoe UI",Arial,sans-serif;
+
+  }
+
+  .landing__text__header {
+    font-size: 72px;
+    font-family: 'Playfair Display SC', serif;
+    position: relative;
+    line-height: 1;
+    margin-bottom: 25px;
+    width: fit-content;
+  }
+
+  .landing__text__header::before {
+    content: '';
+    background: #D6D066;
+    display: block;
+    position: absolute;
+    z-index: -1;
+    top: 125px;
+    bottom: 0;
+    left: -1%;
+    width: 101%;
+    height: 30px;
+}
+
+  .landing__text__caption {
+    font-size: 13px;
+    font-family: -apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue","Segoe UI",Arial,sans-serif;
+    margin-bottom: 50px;
+    font-weight: bold;
+    line-height: 1.75;
+  }
+
+  .landing__text__credit h4{
+    font-family: -apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue","Segoe UI",Arial,sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+  }
+
+  .landing__text__credit__photo{
+    width: 125px;
+    padding-bottom: 20px;
+    border-bottom: 12px solid black;
+  }
+
+  .landing__scroll {
+    width: 100px;
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+
+  .landing__scroll p{
+    text-transform: uppercase;
+    font-family: -apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue","Segoe UI",Arial,sans-serif;
+    font-size: 12px;
+    width: 100%;
+  }
+  .landing__scroll img {
+    width: 50%;
+    margin: 10px auto;
+    animation-name: bounce;
+    animation-duration: 2000ms;
+    animation-timing-function: ease-out;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes bounce {
+    0%{
+      transform: translateY(0px);
+    }
+    50%{
+      transform: translateY(-4px);
+    }
+    100%{
+      transform: translateY(0px);
+    }
+  }
+
+/***************************************************************************************/
+/***************************************************************************************/
+/*
+*      GRID
+*/
+/***************************************************************************************/
+/***************************************************************************************/
+
+  .grid{
+    width: 100%;
+  }
+
+  .grid-content{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .grid-item {
+    width: 33.33%;
+    height: 33vw;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    font-family: 'Playfair Display SC', serif;
+    background-color: black;
+  }
+
+  .grid-item__intro {
+    cursor: default;
+    width: 70%;
+    height: 100%;
+    background-color: black;
+    margin: 0 auto;
+    font-family: -apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue","Segoe UI",Arial,sans-serif;
+
+
+  }
+
+  .grid-item__intro h5 {
+    font-family: 'Playfair Display SC', serif;
+    font-size: 36px;
+    line-height: 1;
+    color: #959595;
+    margin-bottom: 30px;
+    margin-top: 3vw;
+    position: relative;
+  }
+
+  .grid-item__intro div p {
+    font-size: 18px;
+    color: #D5CF66;
+    margin-bottom: 25px;
+    font-weight: bold;
+  }
+
+  .grid-item__intro p {
+    font-size: 16px;
+    color: white;
+    font-weight: lighter;
+    line-height: 1.25;
+    margin-bottom: 40px;
+
+  }
+  .grid-item__intro i {
+    position: relative;
+    left: 4px;
+    font-size: 24px;
+    top: 4px;
+  }
+
+  .grid-item__intro--decor {
+    width: 90px;
+    background-color: white;
+    height: 8px;
+  }
+
+
+
+  .grid-item__play {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    opacity: 0;
+    transition: opacity 1s ease;
+  }
+
+  .grid-item:hover > .grid-item__play{
+    opacity: 0.5;
+  }
+
+  .grid-item img {
+    width: 100%;
+    transform: scale(1.0);
+    transition: transform 1s ease;
+  }
+
+  .grid-item:hover > img{
+    transform: scale(1.1);
+  }
+
+
+  .grid-item__text {
+    z-index: 1;
+    color: white;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    text-align: center;
+    width: 100%;
+    background: linear-gradient(0deg, rgba(0,0,0,.6), transparent 15%, transparent 85%, rgba(0,0,0,.6));
+  }
+
+
+
+  .grid-item__text--name-bio {
+    width: 90%;
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .grid-item__text__quote {
+    margin: 15px auto 0;
+    font-size: 1.75vw;
+    line-height: 1;
+    width: 95%;
+  }
+
+  .grid-item__text__name {
+    font-size: 2vw;
+    margin-bottom: 15px;
+  }
+
+  .grid-item__text__bio {
+    font-size: 1.25vw;
+    font-family: -apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue","Segoe UI",Arial,sans-serif;
+  }
+
+/***************************************************************************************/
+/***************************************************************************************/
+/*
+*      PROFILE
+*/
+/***************************************************************************************/
+/***************************************************************************************/
+
+  .profile {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: none;
+  }
+
+  .profile__content {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(0,0,0,.6), transparent 15%, transparent 85%, rgba(0,0,0,.6));
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+    font-family: -apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue","Segoe UI",Arial,sans-serif;
+  }
+
+  .profile__header {
+    z-index: 5;
+  }
+
+  .profile__header h2 {
+    position: absolute;
+    left: 2%;
+    top: 3%;
+    font-size: 42px;
+    font-family: 'Playfair Display SC', serif;
+    line-height: 1;
+
+  }
+
+  .profile__header img {
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    width: 40px;
+    height: auto;
+    cursor: pointer;
+    transform: scale(1.0);
+    transition: transform 700ms ease;
+  }
+
+  .profile__header img:hover {
+    transform: scale(1.1);
+  }
+
+
+
+  .profile__controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile__controls__bio {
+    width: 90%;
+    max-width: 640px;
+    text-align: center;
+  }
+
+  .profile__audio {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 85%;
+    margin: 0 auto;
+    color: white;
+  }
+
+  .profile__audio__download {
+    display: flex;
+    flex-direction: row;
+    font-size: 12px;
+  }
+
+  .dark:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+
+  .profile__audio__download img{
+    position: relative;
+    top: -4.5px;
+    width: 25px;
+    height: 25px;
+    margin-right: 3px;
+  }
+
+  .profile__audio__buttons {
+    width: 30%;
+    max-width: 200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .profile__audio__button {
+    width: 20%;
+  }
+
+  .skip-button {
+    width: 10%;
+  }
+
+  #play-button {
+    display: none;
+  }
+
+  .plyr--full-ui input[type=range] {
+    color: #D6D066;
+  }
+
+  .profile__audio__button svg {
+    width: 100%;
+  }
+
+  .profile__audio__more {
+    margin-bottom: 10px;
+    transform: translateY(10%);
+    font-size: 12px;
+  }
+
+  .profile__audio__more div {
+    display: flex;
+    margin-bottom: 10px;
+  }
+
+  .profile__audio__more__bio--icon {
+    position: relative;
+    top: -5px;
+    width: 25px;
+    height: 25px;
+    margin-right: 3px;
+
+  }
+
+  .profile__audio__more__transcript--icon {
+    position: relative;
+    top: -1px;
+    width: 25px;
+    height: 25px;
+    margin-right: 3px;
+  }
+
+  .plyr {
+    width: 60%;
+  }
+
+  .plyr__time {
+    display: inline;
+  }
+
+  .plyr--audio .plyr__controls {
+    background: transparent;
+    color: white;
+  }
+
+  .profile__transcript {
+     position: fixed;
+     top: 0;
+     width: 100%;
+     height: 100%;
+     display: none;
+     background-color: rgba(0,0,0,0.75);
+  }
+
+  .profile__transcript--mask {
+    -webkit-mask-image: -webkit-gradient( linear, left top, left bottom, color-stop(0,transparent), color-stop(19%,transparent), color-stop(26%,#000), color-stop(27%,#000), color-stop(67%,#000), color-stop(100%,transparent) );
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    position: absolute;
+  }
+
+  .profile__transcript__content {
+    width: 90%;
+    margin: 200px auto 200px;
+    max-width: 640px;
+    color: white;
+    text-align: left;
+    font-family: -apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue","Segoe UI",Arial,sans-serif;
+  }
+
+  .profile__transcript__header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .profile__transcript__text p{
+    margin-bottom: 15px;
+    font-size: 16px;
+    line-height: 2;
+  }
+  /***************************************************************************************/
+  /***************************************************************************************/
+  /*
+  *      TRANSITION
+  */
+  /***************************************************************************************/
+  /***************************************************************************************/
+  .transition {
+    width: 100%;
+    background-color: #e8e8e0;
+    height: 100vh;
+    position: fixed;
+    overflow: scroll;
+    top: 0;
+    left: 0;
+    display: none;
+    z-index: 3;
+  }
+
+  .transition__header {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .transition__header h2 {
+    font-family: 'Playfair Display SC', serif;
+    font-size: 42px;
+    line-height: 1;
+    color: white;
+    margin-left: 20px;
+    cursor: pointer;
+  }
+
+  .transition__header h2:hover {
+    color: black;
+  }
+
+  .transition__header__nav {
+    height: 40px;
+    color: #939393;
+    font-family: -apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue","Segoe UI",Arial,sans-serif;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+  }
+
+  .transition__header__nav p {
+    height: 100%;
+    line-height: 40px;
+    padding: 2px 15px;
+    overflow: hidden;
+  }
+  .transition__header__nav i {
+    position: relative;
+    top: 2.5px;
+  }
+
+
+  .transition__content {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 100px;
+  }
+
+  .transition__image {
+    width: 49%;
+  }
+
+  .transition__image img {
+    width: 100%;
+  }
+
+  .transition__text {
+    width: 50%;
+  }
+
+  .transition__text__title{
+    font-size: 32px;
+    font-family: 'Playfair Display SC', serif;
+    position: relative;
+    margin-bottom: 30px;
+    width: max-content;
+  }
+
+  .transition__text__title::before {
+    content: '';
+    background: #D6D066;
+    display: block;
+    position: absolute;
+    z-index: -1;
+    top: 27px;
+    bottom: 0;
+    left: -1%;
+    width: 101%;
+    height: 15px;
+}
+
+.transition__text__body {
+  font-family: -apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue","Segoe UI",Arial,sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.transition__text__body p {
+  margin-bottom: 20px;
+}
+
+.transition__next {
+  width: 450px;
+  box-shadow: 1px 1px 1px rgba(0,0,0,.5);
+  background-color: white;
+  display: flex;
+  cursor: pointer;
+  transition: transform 500ms ease;
+  transform: scale(1.0);
+  font-family: -apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue","Segoe UI",Arial,sans-serif;
+}
+
+.transition__next:hover{
+  transform: scale(1.02);
+}
+
+.transition__next__clock{
+  width: 90px;
+
+}
+.transition__next__text {
+  width: 60%;
+}
+
+.transition__next__clock h2 {
+  line-height: 90px;
+  text-align: center;
+  font-size: 36px;
+}
+
+.transition__next__text h6 {
+  font-size: 14px;
+  margin-top: 15px;
+}
+
+.transition__next__text h4 {
+  font-size: 20px;
+  font-family: 'Playfair Display SC', serif;
+}
+
+.transition__next__image {
+  width: 90px;
+  height: 90px;
+}
+
+.transition__next__image img {
+  width: 100%;
+}
+
+.transition__next__arrow {
+  position: absolute;
+  width: 50px;
+  right: -50px;
+  top: 35px;
+  transform: rotate(270deg);
+  transition: transform 1s ease;
+}
+
+.transition__next__arrow img{
+  width: 100%;
+  animation-name: bounce;
+  animation-duration: 3000ms;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+}
+.closing__text {
+  max-width: 640px;
+  width: 90%;
+  margin: 60px auto;
+  font-size: 16px;
+  font-family: -apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue","Segoe UI",Arial,sans-serif;
+}
+
+.closing__text h3 {
+  font-size: 32px;
+  font-family: 'Playfair Display SC', serif;
+  margin-bottom: 20px;
+  position: relative;
+  width: fit-content;
+}
+.closing__text p{
+  margin-bottom: 20px;
+  line-height: 1.75;
+}
+
+.closing__text a {
+  color: #395471;
+  text-decoration: none;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.closing__text h3::before {
+  content: '';
+  background: #D6D066;
+  display: block;
+  position: absolute;
+  z-index: -1;
+  top: 30px;
+  bottom: 0;
+  left: -1%;
+  width: 101%;
+  height: 15px;
+}
+
+.footer {
+  width: 100%;
+  height: 350px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer__logo {
+  height: auto;
+}
+
+.footer__logo h5{
+  color: white;
+  font-family: -apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue","Segoe UI",Arial,sans-serif;
+  text-align: center;
+
+}
+
+.footer__logo img {
+  width: 200px;
+}
+
+
+
+
+
+@media only screen and (max-width: 1200px) {
+  .landing {
+    flex-direction: column;
+  }
+
+  .landing__text {
+    width: 70%;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 150px;
+  }
+  .grid-item__intro p {
+    margin-bottom: 15px;
+  }
+
+  .landing__image {
+    width: 70%;
+  }
+
+  .landing__text__caption {
+    max-width: 450px;
+  }
+
+  .landing__text__credit {
+    width: auto;
+  }
+  .landing__text__credit h4{
+    width: 100%;
+  }
+
+}
+
+
+@media only screen and (max-width: 1024px) {
+  .grid-item {
+    width: 50%;
+    height: 50vw;
+  }
+
+  .grid-item__text__quote {
+    font-size: 2.25vw;
+  }
+
+  .grid-item__text__bio {
+    font-size: 2vw;
+  }
+
+  .grid-item__text__name {
+    font-size: 3.5vw;
+  }
+
+  .grid-item__intro h5 {
+    font-size: 42px;
+  }
+
+  .transition__content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .transition__image {
+    width: 85%;
+  }
+  .transition__text {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .grid-item {
+    width: 100%;
+    height: 100vw;
+  }
+
+  .grid-item__intro {
+    width: 70%;
+  }
+
+  .grid-item__intro h5 {
+    font-size: 52px;
+    margin-bottom: 9vw;
+    margin-top: 9vw;
+  }
+
+  .grid-item__intro div p {
+    font-size: 24px;
+    margin-bottom: 8vw;
+  }
+
+  .grid-item__intro p {
+    font-size: 20px;
+    font-weight: normal;
+    margin-bottom: 8vw;
+  }
+
+  .grid-item__text__quote {
+    font-size: 32px;
+  }
+
+  .grid-item__text__bio {
+    font-size: 28px;
+  }
+
+  .grid-item__text__name {
+    font-size: 42px;
+  }
+}
+
+  @media only screen and (max-width: 480px) {
+    .landing__image {
+      width: 90%;
+    }
+
+    .landing__text__header {
+      font-size: 62px;
+    }
+
+    .landing__text__header::before {
+      top: 105px;
+    }
+
+    .grid-item__intro {
+      width: 80%;
+    }
+
+    .grid-item__text__quote {
+      font-size: 26px;
+    }
+
+    .grid-item__text__bio {
+      font-size: 20px;
+    }
+
+    .grid-item__text__name {
+      font-size: 30px;
+    }
+
+    .profile__audio {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .profile__audio__buttons {
+      width: 90%;
+      max-width: unset;
+      margin-bottom: 20px;
+    }
+
+    .profile__audio__buttons div {
+      width: 10% !important;
+    }
+
+    .profile__audio__download {
+      display: none;
+    }
+    .profile__audio__more {
+      display: flex;
+      justify-content: space-between;
+      margin: unset;
+      width: 100%;
+      height: 70px;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #D6D066;
+      font-size: 18px;
+    }
+    .profile__audio__more__transcript {
+      width: 49.9%;
+      border-right: 1px solid rgba(255, 255, 255, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .profile__audio__more__transcript--icon {
+      top: 3px;
+    }
+    .profile__audio__more__bio--icon {
+      top: 0px;
+    }
+    .profile__audio__more__bio {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .closing__text h3 {
+      font-size: 30px;
+    }
+
+    .closing__text h3::before {
+      top: 25px;
+    }
+  }
+
+  </style>
+</head>
+<body>
+  <section class="landing">
+    <div class="landing__image">
+      <img src="https://cdn.theatlantic.com/assets/media/files/rethink/2017/pbs/to_pledge_allegiance_header.jpg"  alt="To Pledge Alliegence"/>
+    </div>
+    <div class="landing__text">
+      <div class="landing__text__header">
+        <h1>To Pledge<br> Allegiance</h1>
+      </div>
+      <div class="landing__text__caption">
+        <p>The Vietnam War was a pivotal moment in the evolution of patriotism, producing a range of parts that citizens could play as the conflict dragged on: activist, Navy pilot, war hero, journalist, and more. Hear their oral accounts—which range from spending more than eight years as a prisoner-of-war to fleeing Saigon as it fell—and their perspectives on patriotism.</p>
+      </div>
+      <div class="landing__text__credit">
+        <h4>Illustrations: GREG BETZA</h4>
+        <h4 class="landing__text__credit__photo">Photos: EDWIN TSE</h4>
+      </div>
+    </div>
+    <div class="landing__scroll">
+      <p>SCROLL</p>
+      <img src="https://cdn.theatlantic.com/assets/media/files/cta-arrow.svg" />
+    </div>
+  </section>
+  <section class="grid">
+    <div class="grid-content">
+      <div class="grid-item static">
+          <div class="grid-item__intro">
+            <h5>To Pledge Allegiance</h5>
+            <div class="grid-item__stories">
+              <p>Listen to thier stories<i class="fa fa-long-arrow-right"></i></p>
+            </div>
+          <p>Click a portrait to hear from those affected by the events in Vietnam War era, and how it shaped thier definitions of patriotism.</p>
+          <div class="grid-item__intro--decor">
+
+          </div>
+          </div>
+      </div>
+      <div class="grid-item">
+        <img src="https://cdn.theatlantic.com/assets/media/files/rethink/2017/pbs/laura_palmer_1000x1000.jpg">
+        <div class="grid-item__text">
+          <h3 class="grid-item__text__quote">"There are some events that overwhelm destiny"</h3>
+          <div class="grid-item__text--name-bio">
+            <h2 class="grid-item__text__name">Laura Palmer</h2>
+            <p class="grid-item__text__bio">Vietnam War correspondent who went on to write about the families torn apart by the war</p>
+          </div>
+        </div>
+        <div class="grid-item__play">
+          <i class="fa fa-play" style="font-size:48px;color:white"></i>
+        </div>
+
+      </div>
+      <div class="grid-item">
+        <img src="https://cdn.theatlantic.com/assets/media/files/rethink/2017/pbs/everett_alvarez_1000x1000.jpg">
+        <div class="grid-item__text">
+          <h3 class="grid-item__text__quote">“We endured because we had unity.”</h3>
+          <div class="grid-item__text--name-bio">
+            <h2 class="grid-item__text__name">Everett Alvarez, Jr.</h2>
+            <p class="grid-item__text__bio">Navy pilot, Vietnam veteran, and POW held in the “Hanoi Hilton” for eight years</p>
+          </div>
+        </div>
+        <div class="grid-item__play">
+          <i class="fa fa-play" style="font-size:48px;color:white"></i>
+        </div>
+      </div>
+      <div class="grid-item">
+        <img src="https://cdn.theatlantic.com/assets/media/files/rethink/2017/pbs/andrew_lam_1000x1000.jpg">
+        <div class="grid-item__text">
+          <h3 class="grid-item__text__quote">“I am gazing towards civility.”</h3>
+          <div class="grid-item__text--name-bio">
+            <h2 class="grid-item__text__name">Andrew Lam</h2>
+            <p class="grid-item__text__bio">Son of a South Vietnamese general whose family fled to America</p>
+          </div>
+        </div>
+        <div class="grid-item__play">
+          <i class="fa fa-play" style="font-size:48px;color:white"></i>
+        </div>
+      </div>
+      <div class="grid-item">
+        <img src="https://cdn.theatlantic.com/assets/media/files/rethink/2017/pbs/tomas_sandoval_1000x1000.jpg">
+        <div class="grid-item__text">
+          <h3 class="grid-item__text__quote">“We all have to make lives of meaning.”</h3>
+          <div class="grid-item__text--name-bio">
+            <h2 class="grid-item__text__name">Tomás Summers Sandoval</h2>
+            <p class="grid-item__text__bio">Scholar and historian documenting the Latino experience during the war</p>
+          </div>
+        </div>
+        <div class="grid-item__play">
+          <i class="fa fa-play" style="font-size:48px;color:white"></i>
+        </div>
+      </div>
+      <div class="grid-item">
+        <img src="https://cdn.theatlantic.com/assets/media/files/rethink/2017/pbs/eva_paterson_1000x1000.jpg">
+        <div class="grid-item__text">
+          <h3 class="grid-item__text__quote">“I don’t feel I have the right to give in to despair.”</h3>
+          <div class="grid-item__text--name-bio">
+            <h2 class="grid-item__text__name">Eva Jefferson Paterson</h2>
+            <p class="grid-item__text__bio">Civil rights lawyer who debated the war with Vice President Spiro Agnew as a student</p>
+          </div>
+        </div>
+        <div class="grid-item__play">
+          <i class="fa fa-play" style="font-size:48px;color:white"></i>
+        </div>
+      </div>
+      <div class="grid-item">
+        <img src="https://cdn.theatlantic.com/assets/media/files/rethink/2017/pbs/todd_gitlin_1000x1000.jpg">
+        <div class="grid-item__text">
+          <h3 class="grid-item__text__quote">“We were trying to Find levers of change.”</h3>
+          <div class="grid-item__text--name-bio">
+            <h2 class="grid-item__text__name">Todd Gitlin</h2>
+            <p class="grid-item__text__bio">Writer and activist who helped organize the first national anti-war demonstration in D.C.</p>
+          </div>
+        </div>
+        <div class="grid-item__play">
+          <i class="fa fa-play" style="font-size:48px;color:white"></i>
+        </div>
+      </div>
+      <div class="grid-item">
+        <img src="https://cdn.theatlantic.com/assets/media/files/rethink/2017/pbs/phil_gioia_1000x1000.jpg">
+        <div class="grid-item__text">
+          <h3 class="grid-item__text__quote">“We try, as a people, I think. We try.”</h3>
+          <div class="grid-item__text--name-bio">
+            <h2 class="grid-item__text__name">Phil Gioia</h2>
+            <p class="grid-item__text__bio">Army officer during the Tet Offensive, discovered one of the first mass graves of Vietnamese civilians</p>
+          </div>
+        </div>
+        <div class="grid-item__play">
+          <i class="fa fa-play" style="font-size:48px;color:white"></i>
+        </div>
+      </div>
+      <div class="grid-item static">
+        <img class="grid-item__ad" src=https://cdn.theatlantic.com/assets/media/files/rethink/2017/pbs/vietnam_pbs_sunday_v2.jpg />
+      </div>
+    </div>
+  </section>
+
+  <section class="profile">
+    <div class="profile__content">
+      <div class="profile__header">
+        <h2>To Pledge<br> Allegiance</h2>
+        <img class="profile__close"alt="" src="https://cdn.theatlantic.com/assets/media/files/audio-player-close-btn.svg">
+      </div>
+      <div class="profile__controls">
+        <p class="profile__controls__bio"></p>
+        <!-- AUDIO SLIDER -->
+        <audio id="player"  controls>
+          <source src="" type="audio/mp3">
+        </audio>
+        <div class="profile__audio">
+          <div class="profile__audio__download dark">
+            <img alt="" class="profile__audio__download--icon" src="https://cdn.theatlantic.com/assets/media/files/rethink/2017/pbs/download_icon.svg">
+            <p>Download Audio</p>
+          </div>
+          <div class="profile__audio__buttons">
+            <div class="profile__audio__button skip-button dark" id="prev-button">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 29"><defs><style>.a{fill:#fff;}</style></defs><title>prev-track-icon</title><polygon class="a" points="23 29 4 14.5 23 0 23 29"></polygon><polygon class="a" points="4 0 4 14.5 4 29 0 29 0 0 4 0"></polygon></svg>
+            </div>
+            <div class="profile__audio__button dark toggle-button" id="pause-button">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 39"><defs><style>.a{fill:#fff;}</style></defs><title>pause-icon</title><rect class="a" width="8.47" height="39"></rect><rect class="a" x="20.53" width="8.47" height="39"></rect></svg>            </div>
+            <div class="profile__audio__button dark toggle-button" id="play-button">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 40"><defs><style>.a{fill:#fff;}</style></defs><title>play-icon</title><polygon class="a" points="0 40 28 20 0 0 0 40"></polygon></svg>
+            </div>
+            <div class="profile__audio__button skip-button dark" id="next-button">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 29"><defs><style>.a{fill:#fff;}</style></defs><title>next-track-icon</title><polygon class="a" points="0 0 19 14.5 0 29 0 0"></polygon><polygon class="a" points="19 29 19 14.5 19 0 23 0 23 29 19 29"></polygon></svg>
+            </div>
+          </div>
+          <div class="profile__audio__more">
+            <div class="profile__audio__more__transcript dark">
+              <img alt="" class="profile__audio__more__transcript--icon" src="https://cdn.theatlantic.com/assets/media/files/transcript-icon.svg">
+              <p>Transcript</p>
+            </div>
+            <div class="profile__audio__more__bio dark">
+              <img alt="" class="profile__audio__more__bio--icon" src="https://cdn.theatlantic.com/assets/media/files/bio-icon.svg">
+              <p class="profile__audio__more__name"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="profile__transcript">
+      <div class="profile__transcript--mask">
+        <div class="profile__transcript__content">
+          <h3 class="profile__transcript__header"></h3>
+          <p class="profile__transcript__text">
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="transition">
+    <div class="transition__header">
+      <h2>To Pledge<br> Allegiance</h2>
+      <div class="transition__header__nav">
+        <p class="transition__header__nav__replay dark" style="border-right:1px solid #939393;"><i class="fa fa-undo" style="font-size:20px;"></i>
+Replay last story</p>
+        <p class="transition__header__nav__home dark"><i class="fa fa-home" style="font-size:20px;"></i>
+Return to all stories</p>
+      </div>
+    </div>
+    <div class="transition__content">
+      <div class="transition__image">
+        <img src="" alt=""/>
+      </div>
+      <div class="transition__text">
+        <h2 class="transition__text__title"></h2>
+        <p class="transition__text__body"></p>
+        <div class="transition__next">
+          <div class="transition__next__clock">
+            <h2></h2>
+          </div>
+          <div class="transition__next__text">
+            <h6>Next Story</h6>
+            <h4>Ford Neild</h4>
+          </div>
+          <div class="transition__next__image">
+            <img src="" alt=""/>
+          </div>
+          <div class="transition__next__arrow">
+            <img src="https://cdn.theatlantic.com/assets/media/files/cta-arrow.svg" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="closing">
+    <div class="closing__text">
+      <h3>What makes a patriot?</h3>
+      <p>Over the past few decades, the concept of patriotism has become increasingly personal, and less political. Love of country does not preclude criticism or protest; being a new arrival doesn’t make it more difficult to appreciate a nation’s values. There is no single way to think about it.</p>
+      <p>Laura Palmer’s kindness and compassion fostered an all-encompassing love for every community in her country: a love she brought to Vietnam and back from it when she dedicated years to telling the stories of those who lost loved ones in the war. Everett Alvarez, Jr. held fast to solidarity with his fellow countrymen through years of mental and physical torture. Andrew Lam discovered a creative liberation that stemmed from a realization about his Vietnamese-American identity. Tomas Sandoval is wary of nations but open to a patriotism that allows for a plurality of experiences, while Eva Jefferson Paterson aspires to hold her country true to its values. And while Todd Gitlin knew he had to protest an immoral war, he has immense respect for the veterans who fought it, like Phil Gioia, who felt it was his patriotic duty to lead and protect his troops in Vietnam.</p>
+      <p>For more perspectives, tune into <a href="https://ad.doubleclick.net/ddm/clk/404575619;204768736;t" rel="nofollow" target="_blank">The Vietnam War</a>, a new documentary series by Ken Burns and Lynn Novick, premiering September 17 at 8/7c on PBS. <img style="width: 10px;"alt="PBS Tombstone" class="tombstone" src="https://cdn.theatlantic.com/assets/media/files/rethink/2017/pbs/pbs_tombstone.svg"></p>
+    </div>
+    <div class="footer">
+      <div class="footer__logo">
+        <h5>SPONSERED CONTENT</h5>
+        <img src="https://cdn.theatlantic.com/assets/media/files/rethink/2017/pbs/pbs_logo_white.png" alt="">
+      </div>
+    </div>
+  </section>
+  <script>
+
+/***************************************************************************************/
+/***************************************************************************************/
+/*
+*      RAW DATA
+*/
+/***************************************************************************************/
+/***************************************************************************************/
+  var readTime = 45;
+  var imageFiles = {
+    "Laura" : "https://cdn.theatlantic.com/assets/media/files/rethink/2017/pbs/palmer_spot.jpg",
+    "Phil" : "https://cdn.theatlantic.com/assets/media/files/rethink/2017/pbs/gioia_spot.jpg",
+    "Todd" : "https://cdn.theatlantic.com/assets/media/files/rethink/2017/pbs/gitlin_spot.jpg",
+    "Eva" : "https://cdn.theatlantic.com/assets/media/files/rethink/2017/pbs/paterson_spot.jpg",
+    "Tomás" : "https://cdn.theatlantic.com/assets/media/files/rethink/2017/pbs/sandoval_spot.jpg",
+    "Andrew" : "https://cdn.theatlantic.com/assets/media/files/rethink/2017/pbs/lam_spot.jpg",
+    "Everett" : "https://cdn.theatlantic.com/assets/media/files/rethink/2017/pbs/alvarez_spot.jpg"
+  }
+
+  var audioFiles = {
+    "Laura" : "https://cdn.theatlantic.com/assets/media/files/rethink/2017/pbs/01_laura_palmer.mp3",
+    "Phil" : "https://cdn.theatlantic.com/assets/media/files/rethink/2017/pbs/07_phil_gioia.mp3",
+    "Todd" : "https://cdn.theatlantic.com/assets/media/files/rethink/2017/pbs/06_todd_gitlin.mp3",
+    "Eva" : "https://cdn.theatlantic.com/assets/media/files/rethink/2017/pbs/05_eva_jefferson_paterson.mp3",
+    "Tomás" : "https://cdn.theatlantic.com/assets/media/files/rethink/2017/pbs/04_tomas_sandoval.mp3",
+    "Andrew" : "https://cdn.theatlantic.com/assets/media/files/rethink/2017/pbs/03_andrew_lam.mp3",
+    "Everett" : "https://cdn.theatlantic.com/assets/media/files/rethink/2017/pbs/02_everett_alvarez.mp3"
+  }
+
+  var bioFiles = {
+    "Laura" : `
+<p>On January 20, 1961, Laura Palmer was allowed to stay home from school to watch John F. Kennedy’s inaugural speech on her family’s black-and-white television. More than 50 years later, she can still hear his famous instruction: "Ask not what your country can do for you, but what you can do for your country."</p>
+<p>She followed a surprising path to realize what that statement really meant to her, from protesting the Vietnam War in school to becoming a freelance journalist in Vietnam in 1972 (which she documented in <em>War Torn</em>) and later, traveling across America to document the experiences of those who lost loved ones in the war in <em>Shrapnel in the Heart</em>. At the heart of all those experiences is a genuine and deep desire to help people tell their stories, and a persistent empathy for those who lived on after the war but lost so much because of it.</p>`,
+    "Phil" : `
+<p>In 1968, Phil Gioia led a platoon of American soldiers that discovered a mass grave of South Vietnamese civilians just outside the city of Hue, the site of one of the bloodiest battles in the Vietnam War. North Vietnamese troops, during their occupation of the city, had executed South Vietnamese soldiers, professors, doctors, students, and their families: an act of terror meant to send a message to any anti-communist thought to be in the region. For Phil, it was a moment that reminded him why he was fighting.</p>
+<p>Every American soldier he fought with was another reminder. Even though he realized, both during the war and years after it, that the broader strategy and objective of the war might have been flawed, he was determined to lead and protect his fellow soldiers. In his one recurring dream about Vietnam, Phil is asked, years after the war ended, to return to combat, but the most frightening part is that the soldiers he fought with are all gone.</p>`,
+    "Todd" : `
+<p>Todd Gitlin remembers growing up with both pride and anxiety: pride that his country had defeated the “bad guys” in World War II, and then, after he entered college in 1959, anxiety about the growing threat of nuclear war and ever-larger moral grey areas in international policy as he attended college in the 1960s. At first, he and his fellow students advocated against nuclear armament by vigorously educating themselves about the science and policy and engaging their government representatives. Soon he realized that there are moments in history when protest and political participation are the only options.</p>
+<p>That culminated in 1965, when Todd helped organize the first national protest against the Vietnam War in Washington, D.C., and continued to help anti-war projects for years thereafter. In his decades-long career as a sociologist and writer, he has developed a deep understanding of what has moved the country forward—and backwards—but has never wavered in his commitment to hold it true to its core values.</p>`,
+    "Eva" : `
+<p>Eva Jefferson Paterson, a renowned civil rights lawyer and president and co-founder of the Equal Justice Society, made a career out of speaking up. As a 20-year-old student, she debated Vice President Spiro Agnew on national television, defending students’ rights following the 1970 shootings of students protesting the Vietnam War at Kent State and Jackson State Universities.</p>
+<p>After earning her law degree, Eva went on to work at Legal Aid and the Lawyers’ Committee for Civil Rights, co-found and chair the California Coalition for Civil Rights, and serve as Vice President of the ACLU. She has been a voice for battered women, people of color, and the LGBTQ community, and helped bring the concept of implicit bias into mainstream discourse.</p>
+<p>She has seen firsthand the injustices that this country has produced. But it also produced Eva, a defiantly vocal advocate whose patriotism lives in her drive to hold her country true to its Constitution.</p>`,
+    "Tomás" : `
+<p>As far as Tomás Summers Sandoval remembers, most of the men in his early life were Vietnam War veterans, including his father and uncle. The Vietnam War was a childhood presence, one that Tomás took for granted as part of his world until he was old enough to realize its historical significance.</p>
+<p>As an associate professor of history and Chicana/o and Latina/o studies at Pomona College, Tomás is dedicated to the study of the Latino experience in the United States. The Vietnam War was a fundamental part of that experience, Tomás believes, because so many Latino men joined the service despite the demographic’s historic invisibility.</p>
+<p>Tomás decided to change that, starting an oral history project that documents the wartime experiences of Latino men and women and the effect that the war had on an entire generation of Latino immigrants. In the process, he has nurtured an appreciation for both patriotism and a more global humanism that allows for an endless variety of experiences.</p>`,
+    "Andrew" : `
+<p>Acclaimed writer and journalist Andrew Lam fled Saigon in 1975, when he was only 11 years old. The son of a prominent South Vietnamese general, he and his family settled in the United States, but he would come to realize that “becoming American” would be a process that took years—a process that is still ongoing.</p>
+<p>Andrew has had to confront his identity as a Vietnamese-American many times over the course of his life, but he has come to realize that his two identities live together as integrated parts of a whole. Though he originally studied medicine, he turned his focus to writing—from the reflective essays in <em>Perfume Dreams: Reflections on the Vietnamese Diaspora</em> to the vivid short stories in <em>Birds of Paradise Lost</em>—when he realized that the act made him feel closer to his family and father, his Vietnamese roots, and himself. He hopes that his work does the same for his readers: For Andrew, there is no act more patriotic than producing something that bridges divides and cures grief.</p>`,
+    "Everett" : `
+<p>When Everett Alvarez, Jr. enlisted in the United States Navy in 1960, he did so because he felt it was his duty. He didn’t expect, as he jokes, to “start the Vietnam War” when his plane, flying in the retaliation to the Gulf of Tonkin incident, was gunned down on August 5th, 1964, effectively making him the first American pilot to be taken prisoner by the North Vietnamese. He would ultimately spend eight years and six months in captivity.</p>
+<p>During those long years, he would suffer physical and emotional torture, debilitating sickness, solitary confinement, and isolation from his family and loved ones at home. He attributes his survival to the hope and faith he cultivated, with the help of other American soldiers at the “Hanoi Hilton” that he would see home again. Every Sunday, he recalls, he and his fellow soldiers would stand and silently recite both the Lord’s prayer and the pledge of allegiance in their heads in solidarity and in loyalty.</p>`
+  }
+
+  var transcriptFiles = {
+    "Laura" : `
+<p>I was allowed to stay home from school at lunch time to watch JFK being sworn in. I remember the moment when he said, "Ask not what your country can do for you, but ask what you can do for your country." That was a profoundly important moment in my generation.
+I think there was a sense of purpose, a sense of idealism.</p>
+<p>By 1968, everything began to change. We watched the Vietnam War at home on our TV with Walter Cronkite, just like everybody else. And that '68 was an extraordinary turning point for this country. Those of us who protested the war did so because we loved
+our country, because we believed in the values and the ideals of this country, and because I think we believed in actively engaging with your country. Patriotism isn't just waving a flag at a parade: Patriotism is much deeper than that. Patriotism requires
+thinking and participating, and really making a sense of sacrifice. I have no apology to make for those years. We stood up for what we believed in and we stood up against the lies the government was telling us.</p>
+<p>In 1972, I was dating a pediatrician who had finished his training. He wanted to work abroad and I thought, 'That would be great. Maybe we'll go to Europe, maybe we'll go to Africa, maybe we'll go to India.' I was home and the phone rang at two in the
+morning. He was calling me from Morocco and said, "I have a job offer in Vietnam, do you want to go?" I said, "Yes."</p>
+<p>We left in August for six months, and I stayed for two years. That Vietnam was where my life began. I went to Vietnam with all the answers, and I left after two years with an understanding of the questions. We in the anti-war movement—in any mass movement—things
+get reduced to black-and-white, and it was “American involvement is all wrong. The communists are all right.” And when I got to Vietnam, I could appreciate the many shades of gray. I had close friends who were South Vietnamese. I lived and worked in
+Saigon who hated the communists.</p>
+<p>My best friend in Vietnam—she was probably the one who helped me really appreciate the South Vietnamese side of the war. I was freelancing for Time Magazine and also doing some work for Rolling Stone. I was in the Time bureau one night, very close to
+deadline, and my friend Dao walked in. She was coming to say that things looked very bad, and she didn't know if they would survive. Her family had fled from the North in the early '50s. Her father was a civil servant. She had a brother in the South
+Vietnamese army.</p>
+<p>Her brother was missing. She had a Honda. I got on the back of her Honda. We ride through the streets of Saigon to the Chinese part of town. We're sitting with a fortune teller who told her that her brother was alive and he was making his way back to
+the family, which turned out to be true. He did survive. I ask the fortune teller about what she thought was going to happen.</p>
+<p>She was afraid that the communists were going to come to Saigon. She said, "My husband and I have decided that we will poison ourselves and our five children." And I said to her, my friend translating, I said, "Is that because of your clairvoyance that
+you think this is going to happen?" She said, "No." She said, "There are some events that overwhelm destiny."</p>
+<p>And that's how I think of Vietnam. I think it did overwhelm American destiny for a time. It did transform our sense of ourselves. I think it did transform how we view patriotism.</p>
+<p>At that point I had written my first book, “Shrapnel in the Heart,” traced people who left letters to the dead at the Vietnam memorial, I had interviewed people whose children, brothers, sweethearts, husbands had been killed in the war. When I was doing
+the interviews for “Shrapnel in the Heart,” I heard the stories of those who went to war. I understood that for many, it was a chance to serve their country. Their fathers had been in the second World War, and they thought they were going to that war:
+a war with meaning. Instead, they found themselves in Vietnam. I learned about a mother whose only child is killed the week before Christmas, and has never had another Christmas tree since. I learned about siblings who lost their brother in Vietnam
+and haven't talked about it for 30 years, until they started talking to me.</p>
+<p>I interviewed William Westmoreland in 1989, the general who prosecuted the war for many of the years, during the big years of the war. I asked what was the hardest decision he made. He said it was to ask for the big upsurge in American troops when they
+brought the troop level up to 500,000. I said, "Why was that so hard?" He said, “Because I didn’t think it would work.” It was so disturbing to me to hear someone say, "I didn't think it would work, but we went ahead and did it anyway."</p>
+<p>I mean, we know from the Westmoreland Trial, we know from the Pentagon papers. We know from Richard Nixon being elected with a secret plan to end the war, that they knew. They knew. Thousands of kids died for the lies of their government. That to me was
+unimaginable when I watched Kennedy be inaugurated.</p>
+<p>I've done a lot of reporting about the aftermath of war. I have learned and deeply believe that wars don't end, they come home. Women and children often fight them. It takes extraordinary courage to heal and to find meaning and purpose in life again,
+and to process the trauma of war.</p>
+<p>I'll read something I wrote in the introduction: Courage is the common thread that runs through these stories. “Shrapnel in the Heart” brought me quite literally to the door steps of the quietly courageous. I have always been struck by the savagery and randomness of the blows that lacerate some lives. I am in awe of the courage it takes to go on. Rarely do we notice the triumphs that are forged by putting one foot in front of the other, one day at a time. Did we ever really notice that each bullet that took a life in Vietnam stopped several other lives here dead in their tracks? The flag on the coffin covered only the obvious tragedy. It wasn't just the bodies that were buried, it was the dreams.</p>
+`,
+
+  "Phil" :`
+<p>Well I was raised as an army brat. My family's been in the military one way or the other for quite some time. I got out of college in June of ‘67, commissioned as a lieutenant, four days later I reported to the 82nd Airborne Division and I went through parachute school and ranger school back to back that summer. Then after Christmas we went on a big exercise down into Florida, and that's when the Tet Offensive broke out in Vietnam.</p>
+<p>I felt like, this is it. This is what I've been training for. I was an officer, and I had a 43-man unit that was an infantry platoon, and all of my soldiers had been in Vietnam once before at least, some two times. They were very good soldiers, they kept me alive in the those few weeks of fighting.</p>
+<p>And Hue is a, was, before this Offensive, a beautiful city. But Hue I remember as being shot to pieces. I mean it was just torn to bits by the fighting, and it was not a very happy place at that point. And I remember some of the orientation films we were shown, it's all black and white, all were just rice paddies, black and white houses, huts, black and white. But you get in country, and it's green. I mean I've never seen so many variations of the shade of green and the shades of green were alarmingly stunning. And the number of wild life. It was just everything, you name it.</p>
+<p>I was almost taken out one afternoon, we were sitting at the base of a big tree in Triple Canopy Jungle and suddenly crashing down through the canopy overhead, we heard something, and everyone froze, we didn't know what it was. And this gigantic brown sloth hit the ground, had lost his footing up there and came down and hit the ground right beside me. He must have weighed 30 pounds and if that thing had hit me it would have taken me right out. A couple of years of that makes you a believer in nature.</p>
+<p>The kind of combat I experienced was, it was all jungle fighting. And in that, you're out looking for the other fellow, and he's either dug in somewhere camouflaged, that's his base areas, and you were looking for those, or he was on the move. And when you bumped into an enemy unit on the move, the Army has a formal term for that, it's called a “meeting engagement,” but it's really like a knife fight in a dirt floor Texas bar, except heavily armed. And it's a shoot out at close range. Once the first burst of fire happens, of course, everybody does the natural thing, which is they hit the ground. And if you hit the ground in jungle, everybody disappears. So you as an infantry leader have to move to where you can best influence the action, and as soon as you move, you’re exposing yourself, so of course that drew a lot of fire. So you get busy.</p>
+<p>My unit discovered the first of the mass graves of civilians that had been just executed by the Communists because they were—when the North Vietnamese occupied Hue, they had come in with lists of people. They rounded them all up, because they were going to make an example of what happened, this was to terrorize the South Vietnamese. So they slaughtered these people. They took them all out to these places around the city and killed them. Then buried them in these shallow graves and we found one of them first. They were all civilians in this one. Men, women and children. And I mean little kids. It was a terrible thing.</p>
+<p>Warfare is violent, and the things that happen in war can be beyond your imagination. And the aftermath can be worse, because you're all pumped up with adrenaline during the action, but when everything stops that's when people get the shakes. There were moment where I sort of sat and thought, "What is this all about?," after we'd had a couple of people killed, and it was a pretty sad experience, because they were killed on my command, under my leadership. There was nothing we could do about it. Combat is arbitrary, you could be good, but you could be unlucky. You could believe in whether the war was right or wrong, but your job was to lead American soldiers.</p>
+<p>I only had one dream about the war in Vietnam. It would come about once every few months. In the dream, the war is still going on and I'm in my office and the phone rings, and it's Infantry Branch back in Washington. We had an infantry assignments officer.</p>
+<p>So whoever the assignments officer is on the phone saying, "Hey, you know the war is not going- not going well in Vietnam," and he goes, "You know we're really rounding up some of the old tigers like yourself, and we want them to go back and kind of tell the young guys how it was done and kind of put a little fight into them.”</p>
+<p>Then he, whoever it is on the other end of the phone, starts to name the people that I went to Airborne school and Ranger school with and served with in the 82nd or the First Cavalry Division, people I knew well, and said, "You know, those guys are going back” and that's when I remembered that they were all killed in Vietnam.</p>
+<p>I was an officer and soldiers don't get to choose their wars. You know, that was my job. By the way, remember what I said about leading American soldiers. My responsibility was for my soldiers, and if I was going to go back to Vietnam, which I did, and I was going to lead infantry, I was going to do it as well as I could. My job was to find the enemy and kill him, or take him prisoner.</p>
+<p>You know I think the United States is a great country, I'm very proud to be an American, gave my family, and people who come from all over the world, opportunity. I'm very proud of America, but I'm not blind to its faults. I feel that kind of like, what Winston Churchill said about Democracy, "It might not be great, but it's way ahead of whatever is running in second place,” you know.</p>
+<p>But we try, as a people, I think we try. And I think what I did was in the old concept of patriotism, you know, I wanted to do something right for my country. I can look back on it and I can say, "I think I did the best I could given the circumstances and what I knew then." I look back on that with a great deal of pride. It was a very defining moment in my life.</p>
+`,
+
+    "Todd" : `
+<p>What was it like to be involved as a so called, activist? It was exhilarating to feel that you understood something about the world that was morally and intellectually urgent. That you were not alone in feeling that, because some of what you were feeling and thinking was definitely a minority view. That you had momentum. That you were not completely stranded or doomed.</p>
+<p>My parents lived in the Bronx. So that's where I grew up, and then I went away to college, and then graduate school. And while I was in college I had gotten involved in the New Left, the student movement, initially around the problem of nuclear weapons. And then civil rights, and then the Vietnam War, and South Africa and all kinds of other things.</p>
+<p>My friends and I felt that we were not only called to do and say the right thing, but that we actually had some prospects of making a difference. So you know, that was exciting. We felt like pioneers in a way. We called what we were involved in "The Movement." And we meant that our ambition was far greater than protests. Okay, protests conceptually presupposes, “They're the powers, and we're up against them." Okay, so yeah. I certainly felt that way, but we felt we were not only protesting, we were trying to find levers of change.</p>
+<p>There are times when protest is all you can do, and we did that. I then, in a way, evolved or graduated toward this new group, Students For Democratic Society, which had a more general outlook, a more general agenda. Yeah, it was concerned about the Cold War and the arms race, it was also concerned about civil rights and university rights, university liberties and the appeal of what we called, participatory democracy. And then from then on, yes, I did help organize protests. I was one of the organizers of the first demonstration, a national demonstration against the Vietnam War. That was in April in 1965.</p>
+<p>And we got 25,000 people out to Washington, which today would be a drop in the bucket. But then, it was a very big deal. Washington wasn't used to big demonstrations, with the single exception of the giant civil rights demonstration in '63. So yes, we were protesters, but very quickly debates began about how to proceed from here, "What do we do? How do we talk to people who are new to us? How do we keep up the initiative? How do we convert people who don't agree with us? How do we affect policy?" And at the same time, become visible.</p>
+<p>When our bus of demonstrators got to Washington and we could see how many buses there were, already there parked. Having disgorged their passengers for this big demonstration, which was primarily centered around the White House. That was astonishing. So, we were exhilarated. It was really a beautiful moment. You know, you run into people you hadn't seen in years, and people you didn't even know had any political interest. It was primarily a young people's demonstration, but there were a lot of elders of different kinds. It was primarily a white demonstration, but by some reports as many as 10 percent of the people there were black, which was close to their proportion of the population. People with buses had been hired from the deep South. So you know, it sort of felt like the embryo of the new America. You could really feel proud of living here.</p>
+<p>There was never a consensus on what this new America would be, it was easier to know what it wouldn't be. It would not be warmongering, it would not be racist, authoritarian, it would not be stupid, and so on. So the movement was diffuse in its picture of what the future ought to be. You know, there was a range of views always, of moods. But you know, Martin Luther King always affirmed, and he was not alone in this, that the civil rights movement was an attempt to redeem American values. That it was predicated on the Declaration of Independence and the idea of universal human rights. In other words, America was not place in this line of argument, America's not a territory. America is an idea.</p>
+<p>We did love it, but we didn't love the version of America which was narrow-minded, hostile, presumptuous, imperialist, racist, et cetera. And it was always a difficult thing to work out. I mean, when there are people who really come after you, and you know, sometimes I'm talking about police. But I'm also talking about common citizens. You know, how do you deal with it?</p>
+<p>I can remember also an incident years later I was in Chicago working as a community organizer in the mid 60's. And we were just beginning//to figure out how to talk to young white men, many of them from the South and Appalachia, who were gonna be vulnerable to the draft. Some of us went out to a high school at one point, I think we were passing out flyers saying we were offering draft counseling. And some kid, he was probably a high school kid, he just came up to me and slugged me and knocked me down. From his point of view, I was unpatriotic. And even though we felt like we were actually trying to help people wrestle with the question of what is morally right for them, there were always people who hated our guts. And outbursts of violence of that sort were both common and no big deal in some sense.</p>
+<p>But we thought we were standing up for the heart of America. I remember an older man I met said the famous line that you often heard, I first heard it in school was, Stephen Decatur's statement, you know, "My country, right or wrong." But I was told by this gentleman that the next line was, "If right, let's keep it right. If wrong, let's make it right."</p>
+`,
+
+    "Eva" : `
+<p>You know if you have like, a jar and it's tight and you can't get it open? And you turn it, turn it, turn it, and then you give it to somebody else and the jar just opens up magically? Well, I think that's what happened with me.</p>
+<p>When I got to Northwestern in the fall of '67, people were starting to turn against the war in Vietnam, and I remember saying something that just blows my mind today to think I said this and believed it: that if the president said something was true, it was true, and if he said we should be in Vietnam, that made sense.</p>
+<p>My dad was in the army and when the Air Force got started he switched over the Air Force//my father was given an assignment to go to Vietnam. Some time in the spring I had a conversation with my dad, and he said we shouldn't be in Vietnam, we're ruining the country, and we should get out of there. Hearing my friends, hearing my father, hearing Dr. King, hearing all these people coming up with ideas about why the war made no sense, made it easy for me when Robert Kennedy came out against it to go along.</p>
+<p>In 1970 on May 4th, a few days before then Nixon went into Cambodia, and students around the country were protesting. There was not really a big protest at Northwestern. On May 4th, four students were shot and killed at Kent State in Ohio, black students were shot at Jackson State. I remember being at home that summer reading something in US News and World Report where the Nixon administration decided they wanted to debate student leaders to show that we were crazy people, and I went, "Hmm, isn't that interesting?" Then there was a call from the White House or the FBI who wanted to do a background check on me. I went, "Hmm, I wonder if I'm going to be one of those people who gets interviewed?" And I was.</p>
+<p>So they flew us to New York, I was in this little kinda cheesy motel, and there were four student body presidents. I was the only woman, the only person of color. I remember Agnew coming in and he was very polished, shook our hands. For some reason I was not the least bit nervous, because they seemed like the enemy, and I felt like I was speaking on behalf of students from around the country.</p>
+<p>And I said, "During the slavery movement, abolitionists were seen as lawless, crazy people, but in retrospect they were exactly correct. Someday we're going to look back on the war in Vietnam and see that that was just wrong as well, so we need to do everything we can within lawful means to oppose the war in Vietnam." I think he thought a black woman would not be able to hold her own with him, would not be able to be logical, would not be able to be articulate, would not be able to counter his arguments. And by the end I think he was actually agreeing with me which I just found hilarious.</p>
+<p>So I worked for Legal Aid for two years in East Oakland, and then five times I got asked to apply for an organization that later became the Lawyers Committee for Civil Rights. I said, "No, no, no, no." Then the fifth time I felt like, "Well, is the universe trying to tell me something?" So I took the job. I was there for 26 years. We did all kinds of cases. We did a school desegregation case in San Francisco. Before there was a notion of unarmed black men being shot by police, we represented the family of an unarmed black person who was shot by the San Francisco Police, Mr. Charlie James.</p>
+<p>My best friend's mother is named Rita Marshall, and she said something once when we were over there for dinner. She said, "I hate this country and I love this country." That's kind of how I feel about it. It's a country of slavery, of concentration camps for Japanese Americans, of decimating Native Americans, of not letting white men who didn't have property vote, of anti-Semitism, just all the horrible things that have been done in the name of the United States. It's also the country of Frederick Douglas, of Fred Korematsu, of Martin Luther King. So there's a duality here, there's an ability to fight but then there are all the things you have to fight against. So there’s just parts of being an American that just break your heart. And there's this Maya Angelou poem, “And Still I Rise,” that says, "I am the hope and dream of the slave." So I don't feel I have the right to give into despair, it's yin and yang, it's back and forth. I think the arc of the moral universe bends towards justice. I hope. I don't know.</p>
+`,
+
+    "Tomás" : `
+<p>Most of the kids who I was in grade school with had dads who were Vietnam veterans, including two Vietnamese kids who were in our class, so it was a very common experience, it was a very common part of the community in which I was living, as well as my family.</p>
+<p>I'm born in 1972, so after my dad had already served and returned. The war was a real prescient part of my life. There was a photo album of all his photos from his time in Vietnam. You know, it was something that my mom communicated to us, from a very young age, but it wasn't something that he talked about with us, necessarily.</p>
+<p>The work I'm doing right now is based on oral histories, with Chicano and Latino Vietnam veterans, as well as their wives and family members. That's what I do professionally, and it's a very personal kind of topic, too. And my goal there is to, first and foremost, record and preserve a history before it's lost. Oral history is an important process in that sense, especially, I think, for Latinos, because we tend to be invisible in the traditional historical record very often, certainly not at a level that's commensurate with our level of involvement in those world events.</p>
+<p>The larger goal is to understand how the Vietnam War shaped Chicano and Latino communities, how it shaped a certain generation of Latinos, coming of age in the United States, and how it had some kind of long term impact as well. For most of the people who I've talked to, it really opens us up to understanding how a generation coming of age in the Cold War had a really specific kind of social, cultural, political experience. One that, in a lot of ways, even for very marginalized communities, growing up in the Cold War really created this kind of possibility of assimilation for them, even for those who are poor rural farm workers from the Salinas valley are very often growing up with this message not only that they are American, but that they have certain kinds of Cold War responsibilities, as a result.</p>
+<p>And for a lot of people, that drives them to enlist. It also makes them not necessarily resist the draft, when it does come. They often take it with a sense of fatalism, that it's your obligation as an American male, in particular, to go off and do these kinds of things.</p>
+<p>You know my own life experience speaks a lot to the disproportionate Chicano and Latino level of involvement in the war that's an experience that's shared with many poor and working class communities inside of the United States. You know, most servicemen who served in Vietnam were poor whites from different parts of the country, but Latinos served in disproportionate rates as well, African Americans to an even greater extent, and in particular, for Latinos, you wouldn't know that in the popular depictions of Vietnam, after Vietnam.</p>
+<p>A lot of Mexican Americans of that generation, who went through those events, thank me for the work that I'm doing, because they see it as taking care of an invisibility, of exposing their story, that they feel has been silenced in a lot of ways.</p>
+<p>The most important thing that I've learned about war, as somebody who's never fought in one, is that it's a very individual experience, what people go through, and even in the ways that they make meaning from that over time. One thing that weaves itself through all of them is that there is a heightened sense that you are a part of this country, that you are deserving of recognition, of respect, of services, of you name it.</p>
+<p>War is a terrible thing. I think the more you learn about war, for me, the main lesson of war is that we need to avoid it, and we need to not fight them. At the same time, you know, I speak to lots of people who see themselves, very passionately, as patriotic Americans, and I understand that we all have to make lives of meaning, and we all have different pathways to do that and different experiences that we have to navigate to get to those points of clarity, so you know, that's just part of being people.</p>
+<p>Nothing that I study or learn can make me think of myself as anything other than an American, although thinking about myself as an American grows over time, and adds meanings to it. I mean, at the same time, I'm Mexican. I'm Chicano. I see myself as those things, as I always have, since growing up. Those add and flesh out my sense of what it is to be an American. I mean, there's probably as many definitions of being an American as there are Americans, if you dig deep enough. The nation itself isn't jeopardized by that kind of diversity. It's really strengthened by it.</p>
+`,
+
+    "Andrew" :`
+<p>My father would fly me in his helicopter over burned-out villages in the aftermath of some battlefields. My father was a one-star general when I was born. That was a tumultuous year of 1963, a few months after Ngo Dinh Diem was assassinated. And so my childhood was basically a childhood among soldiers and warfare. So I remember very deeply what war meant. It still haunts me today.</p>
+<p>I saw my first dead body in 1968 as a little kid when they attacked you know the Mekong Delta area and our house, and my great-uncle took me out to see the dead bodies on the street. I was about four. My mom was the opposite, all about protecting the kids, not letting us outside the house. My dad is someone who’s like, “No, well, the kids need to see what I deal with every day”.</p>
+<p>He's quite old now and his memories are failing him, but for years, every evening at dinnertime, it always goes back to the war. It goes back to the time when he fought that war and was the most-respected figure. If you fought in the Vietnam War that long, you cannot help but be bound to it. Those who survived and escaped, it felt that they, too, betrayed those who didn't leave. I remember just repeated nightmares even when I got to the United States.</p>
+<p>There is this weirdness in which the American dream played itself out after the betrayal. It’s within all of us this sense of being abandoned and then we made our way out, but then we remade ourselves and then we ourselves became American.</p>
+<p>I couldn't figure out what had happened to me. I was this Vietnamese kid one day, and next thing you know I'm in American school and learning English and became an American. It was a kind of abrupt transition. And part of it, I now realize, is trauma. I didn't want to associate being Vietnamese at all, so I closed my eyes and ran as fast as I can. I even gave myself the new name Andrew so that I can completely fit in. I remember even lying to people and said that I was American-born because for a period of time, anything associated with Vietnam was shameful and sadness and grief.</p>
+<p>My life at Berkeley took a different turn. I learned a lot about myself from reading literature of life that has nothing to do with my own, but so insightful and profound that it gives me insight and gives me a way to frame my own story. In nonfiction, I would have to say that James Baldwin stands out because he basically is from this marginalized part of society, was gay, black, in segregation America. Yet he spoke with such truth and eloquence and fearlessness that it gave me this confidence that if he, marginalized as he was, can say these things, so maybe can I. It’s the idea that it doesn't matter what color you are or it doesn't matter what connection of the past you have; the ideal America allows you to get to the center simply through your own ingenuity and smarts and that was a redemptive America for me.</p>
+<p>At Berkeley, I fell in love, and I fell deeply in love with someone from the same culture. When we broke up, my life kind of shattered. And for me to be whole was to write about the things that I’d lost. There was a passage in which I say something along this line: ‘If you share your life with someone, and a private sense of humor with someone, a kind of language that only the two of you understand, when you lose that person, you in fact have become an exile. You become out of that world. You've lost that universe. In fact, you've lost an entire country.’</p>
+<p>I remember reading that passage and then I started to cry. I started to cry not because my heart was broken, but I cried because it occurred to me slowly that my heart was broken before, that at 11 in that refugee camp in Guam, listening to the news of the BBC announcing the collapse of Vietnam, was that I had shattered and I didn't know it. I just froze up without thinking as a way to protect myself. All that muteness was a way not to deal with this heartbreak which is epic. How does an 11-year-old deal with the loss of an entire country? He can't, so he shut down and he became someone else.</p>
+<p>And it was the heartbreak at Berkeley that opened me up to acknowledging the heartbreak of the 11-year-old kid. And so I started writing again, but this time I wasn't writing about the heartbreak; I was writing about a brokenhearted people. I was writing about what it feels like to be a refugee, not knowing where you're going. I was writing what it's like to live in an America where no one knows your name and you're here struggling to make ends meet and trying to make sense of your world, and what it's like to be a boat person trying to find shore.</p>
+<p>Yes, the particulars are different and the historical circumstances are different, but how we suffer and how we deal with our losses, and how we struggle to move forward, is the same. We recognize ourselves in the other. Maybe that's the redemption of literature. It has a way to cure me of grief. To me, it's an act of patriotism is to create work that connects us.</p>
+`,
+
+    "Everett" :`
+<p>It was eerie, the sensation I had, realizing that we were actually going into war, knowing that we would probably face heavy defenses. It was jittery, I was nervous.</p>
+<p>We deployed in May of '64. We were on station when things were developing in southeast Asia and in the South China Sea. We were cruising in that area when the Tonkin Gulf Incident occurred in August of 1964.</p>
+<p>Flak bursts all around my plane and tracers coming at me. There was a lot of live ammo coming at me. And then there was a big flash and a poof and my airplane started to fall apart. I tried to gain altitude but I had no control. And as the plane started to roll over and I couldn't keep the nose up. I knew by instinct that I couldn't stick with it because I wasn't going to make it if I did, so I ejected, hoping I would live.</p>
+<p>God was watching over me that day, ‘cause I made it. My chute popped open and just as it did I found myself in the water, so I had cleared the land. I was injured, but not badly injured. When they captured me, I was right there, right on the coast, and they pulled me into one of their boats. So I became the first American pilot captured in North Vietnam. And so for many years, I would tell people I started the war.</p>
+<p>I was solitary for 13 months, 8 days. And I refused to do anything that the Vietnamese asked me to do. I had a lot of interrogation initially, but I managed to get through that. They were Americans that they were capturing, and I could not do anything to betray my fellow Americans. That was important to me.</p>
+<p>We got news from home from the new shoot-downs that would come into the camps. Once he learned the tap code and the system, he would disseminate whatever he knew. It was hard to keep the spirits up, but you just do what you have to do. And then when the others started to join and time went by and there were more of us and more of us, it was better 'cause it was strength in unity. We felt that together we all had kept our hope.</p>
+<p>We had a ritual. That no matter where we were, whether we were solitary or a group of men, the senior officer in the camp would send out a signal on Sunday morning. And everybody in the cell would stand up and if you were by yourself you stood. And we silently said the Lord's prayer. We had to say it very silent, because if the sign was heard outside, the cells, we would be punished, that means we'd be taken out and beaten. And then at the conclusion of the Lord's prayer, we'd all face east and placed our hands over our hearts and said the pledge of allegiance. And that was said every single Sunday. We never missed a beat.</p>
+<p>And then one day they lined us all up in the courtyard and read the agreements, the Paris Talks. And they said, you'll be going home. And they called our names forward, one by one we were escorted from there to the waiting C-141s. When they got to the end of the runway and we rolled down and finally lifted off, everyone was cheering, and I sat there quietly, somewhat pensive, and we toasted each other. We said, "We made it."</p>
+<p>Until I stepped off the plane, and it was just thousands of people there at Clark. Military, dependents, civilians, American Filipino. With signs. I mean it was a celebratory mood. And it sort of seemed odd that the people were going to be welcoming us home because for so many years, we'd been drummed into this thing that the Americans were against the war and they had shown us clips and movies of the riots, anti-war riots.</p>
+<p>I went years without wanting to talk about my experience, I hardly talked about it. I had a lot of veterans’ groups that used to try to encourage me to write a book about my story. I finally found a ghost writer, he asked me questions and I started talking. I wrote a book that talks about every detail that happened on that mission. I found it to be very therapeutic; I found it to be that, at points, I would start to cry.</p>
+<p>Our story is one of kids from all across America, thrust into this situation. My story is not one of heroism. I'm not a hero. We served our country under the most difficult circumstances; we endured because we recognized that we were going to have to really stick together through thick and thin in order to survive. And we did.</p>`
+}
+
+/***************************************************************************************/
+/***************************************************************************************/
+/*
+*      LOAD DATA
+*/
+/***************************************************************************************/
+/***************************************************************************************/
+
+  function loadData(){
+    //Will fill this array with people
+    var people =[];
+
+    function makePerson(){
+      //Given the grid item, we can find the name
+      var name = $(this).find(".grid-item__text__name").text();
+      //We can also retrive a few other things such as profile image and profile bio from this grid item
+      var profileBio = $(this).find(".grid-item__text__bio").text();
+      var profileImage = $(this).children("img")[0].src;
+      //Using this name, we can find all associated data in our premade raw data arrays
+      var firstName = name.slice(0,name.indexOf(" "));
+
+      return person = {
+        "gridItem":$(this),
+        "name":name,
+        "profileImage":profileImage,
+        "profileBio": profileBio,
+        "bio": bioFiles[firstName],
+        "image":imageFiles[firstName],
+        "audio":audioFiles[firstName],
+        "transcript": transcriptFiles[firstName]
+      };
+    }
+
+    //Generates people items, defined by thier grid item
+    $('.grid-item').each(function(i, obj) {
+      if(!$(this).hasClass("static")){
+        people.push(makePerson.call($(this)));
+      }
+    });
+
+    return people;
+  }
+
+  var people = loadData();
+
+
+/***************************************************************************************/
+/***************************************************************************************/
+/*
+*      PROFILE POP UP
+*/
+/***************************************************************************************/
+/***************************************************************************************/
+
+  var inPopUp = false;
+  var name;
+  var transcript;
+  var bio;
+  var nextSlide;
+  var prevSlide;
+  var currentSlide;
+  var firstName;
+  $(".grid-item").each(function(i, item) {
+    //-------------------------CLICK--------------------------------------
+    $(this).click(function() {
+      //DONT DO ANYTHING IF THIS IS A STATIC GRID
+      if($(this).hasClass("static")){
+        return;
+      }
+      //THEY CLICKED ON A GRID, LETS FIND OUT WHICH PERSON IT BELONGS TO
+      var person;
+      currentSlide;
+      for(var i = 0; i < people.length; i++) {
+        if(people[i]["gridItem"][0] == $(this)[0]) {
+          person = people[i];
+          currentSlide = i;
+          break;
+        }
+      }
+      //CLEAR PREVIOUS CLOCK
+      clearInterval(clock);
+      //NOW LETS FILL IN LOCAL VARIABLES WITH OUR PERSON'S DATA
+      name = person["name"];
+      backgroundImage = person["profileImage"]
+      profileBio = person["profileBio"];
+      bio = person["bio"];
+      image = person["image"];
+      var audio = person["audio"];
+      transcript = person["transcript"];
+      //NOW LETS FIND OUT WHICH PERSON COMES AFTER/BEFORE
+      if(currentSlide == 0){
+        prevSlide = 6;
+      }else{
+        prevSlide = currentSlide - 1;
+      }
+      nextSlide = (currentSlide+1)%(people.length);
+      console.log("here: " + currentSlide);
+
+      //NOW LETS MAKE STUFF APPEAR
+
+      //SHOW POP UP
+      $(".profile").fadeIn(500);
+      $("body").addClass("hideBody");
+      //SET BACKGROUND IMAGE
+      $(".profile").css("background-image","url(" +backgroundImage+")");
+      //SET TEXT
+      var article;
+      if(profileBio.slice(0,1) == "A") {
+        article = "an ";
+      }else{
+        article = "a ";
+      }
+      profileBio = name+" is "+ article+profileBio;
+      $(".profile__controls__bio").text(profileBio);
+      firstName = name.slice(0,name.indexOf(" "))
+      $(".profile__audio__more__name").text(firstName+"'s Bio");
+      //SET AUDIO FILE
+      var player = document.getElementById("player");
+      player.src = audio;
+      play();
+      //SET TRANSITION IMAGE
+      $(".transition__image img").attr("src",image);
+    });
+  });
+
+  //CLOSE BIO AND TRANSCRIPT
+  $(".profile__close").click(function() {
+    //CLOSE TRANSCRIPT AND BIO
+    if(inPopUp){
+      inPopUp = false;
+      $(".profile__transcript").fadeOut();
+      $(".profile__controls").fadeIn();
+    //CLOSE PROFILE
+    }else{
+      $(".profile").fadeOut(500);
+      $("body").removeClass("hideBody");
+      pause();
+    }
+  });
+
+
+
+  //TRANSCRIPT POP UP
+  $(".profile__audio__more__transcript").click(function(){
+    inPopUp = true;
+    $(".profile__transcript__header").text(firstName+"'s Transcript");
+    $(".profile__transcript__text").html(transcript);
+    $(".profile__transcript").fadeIn();
+    $(".profile__controls").fadeOut();
+  });
+
+  //BIO POP UP
+  $(".profile__audio__more__bio").click(function(){
+    inPopUp = true;
+    $(".profile__transcript__header").text(firstName+"'s Bio");
+    $(".profile__transcript__text").html(bio);
+    $(".profile__transcript").fadeIn();
+    $(".profile__controls").fadeOut();
+  });
+
+  //TRANSITION SLIDE POP UP
+  var clock;
+  //NEXT BUTTON
+  $("#next-button").click(function(){
+    if(playing) {
+      pause();
+    }
+    $(".transition__text__body").html(bio);
+    $(".transition__text__title").text(name);
+    console.log(nextSlide)
+    console.dir(people[nextSlide]);
+    $(".transition__next__image img").attr("src",people[nextSlide]["profileImage"]);
+    $(".transition__next__text h4").text(people[nextSlide]["name"]);
+
+    $(".transition").fadeIn();
+    $(".profile__close").trigger("click");
+    window.scrollTo(0, 0);
+    $("body").addClass("hideBody");
+    $(".transition__next__clock h2").text(readTime);
+    clock = setInterval(decrementClock,1000);
+  });
+  //PREV BUTTON
+  $("#prev-button").click(function(){
+    //Does what would happen if you had just clicked the profile of the previous person
+    people[prevSlide]["gridItem"].trigger("click");
+
+  });
+
+  //TRANSITION SLIDE CLOSING
+  $(".transition__header__nav__home").click(function(){
+    $(".transition").fadeOut();
+    $("body").removeClass("hideBody");
+    window.scrollTo(0, 0);
+  });
+
+  $(".transition__header h2").click(function(){
+    $(".transition__header__nav__home").trigger("click");
+  });
+
+  $(".transition__header__nav__replay").click(function(){
+    $(".transition").fadeOut();
+    people[currentSlide]["gridItem"].trigger("click");
+  });
+
+  //TRANSITION SLIDE END
+  $(".transition__next").click(function(){
+    people[nextSlide]["gridItem"].trigger("click");
+    $(".transition").fadeOut();
+  });
+
+  //CLOCK LOGIC
+  function decrementClock(){
+      var curr = $(".transition__next__clock h2").text();
+      if(curr == 0){
+        clearInterval(clock);
+        $(".transition__next").trigger("click");
+        $(".transition__next__clock h2").text(readTime);
+        return;
+      }
+      curr = parseInt(curr,10);
+      $(".transition__next__clock h2").text(curr-1);
+  }
+
+//AUDIO PLAYER SET UP AND LOGIC
+  const player = new Plyr('#player', {
+    controls: [
+    'current-time', // The current time of playback
+    'progress', // The progress bar and scrubber for playback and buffering
+    'duration', // The full duration of the media
+    'pip', // Picture-in-picture (currently Safari only)
+    'airplay', // Airplay (currently Safari only)
+    'fullscreen', // Toggle fullscreen
+]
+  });
+  //REARRANGE PLACEMENT OF AUDIO "CURRENT TIME"
+
+  var slider = $(".plyr__progress").detach();
+  slider.insertAfter($(".plyr__time--current"));
+
+
+  //AUDIO PLAY BUTTON
+  var playing = true; //default auto play
+  $(".toggle-button").click(function() {
+    if(playing) {
+      pause();
+    }else {
+      play();
+    }
+  });
+
+  function pause() {
+    playing = false;
+    $("#pause-button").hide();
+    $("#play-button").show();
+    player.pause();
+  }
+
+  function play() {
+    playing = true;
+    $("#play-button").hide();
+    $("#pause-button").show();
+    player.play();
+  }
+
+
+  </script>
+</body>
